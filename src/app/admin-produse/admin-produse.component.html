@@ -1,0 +1,34 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of produse">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>
+                    <button (click)="deleteProduct(p)">Delete</button>
+                    <a [routerLink]="['/admin-produs-view/', p.id]">View</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <div>
+        <input type="text" placeholder="Product Name" [(ngModel)]="produsNou.name">
+    </div>
+    <div>
+        <input type="text" placeholder="Product Price" [(ngModel)]="produsNou.price">
+    </div>
+    <div>
+        <button (click)="btnSaveClick()">Save</button>
+    </div>
+</div>
