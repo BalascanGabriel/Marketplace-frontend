@@ -1,0 +1,24 @@
+nav {
+    display: flex;
+    justify-content: flex-end; /* aligns items to the right */
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 0 10px;
+  }
+  
+  nav a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  

@@ -11,6 +11,7 @@ import { ProduseComponent } from './produse/produse.component';
 import { AdminProduseComponent } from './admin-produse/admin-produse.component';
 import { FormsModule } from '@angular/forms';
 import { AdminProdusViewComponent } from './admin-produs-view/admin-produs-view.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AdminProdusViewComponent } from './admin-produs-view/admin-produs-view.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
