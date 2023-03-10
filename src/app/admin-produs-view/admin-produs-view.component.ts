@@ -18,11 +18,11 @@ export class AdminProdusViewComponent implements OnInit {
   ngOnInit(): void {
     this.pentruRuta.params.subscribe(x => {
       console.log('id produs de view: ', x);
-      // this.produseService.findById(x.idProdus)
-      //   .then(raspuns => raspuns.json())
-      //   .then(raspuns => {
-      //     this.produs = raspuns;
-      //   })
+      this.produseService.findById(x['idProdus'])
+        .then(response => response.json())
+        .then((produs: Product) => {
+        this.produs = produs;
+      });
     })
 
   }
