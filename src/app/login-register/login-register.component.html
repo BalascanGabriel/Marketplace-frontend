@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card" [@cardAnimation]="activeCard">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link" (click)="activeCard = 'login'" [class.active]="activeCard === 'login'">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" (click)="activeCard = 'register'" [class.active]="activeCard === 'register'">Register</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div *ngIf="activeCard === 'login'">
+              <h5 class="card-title">Login Form</h5>
+              <form>
+                <div class="form-group">
+                  <label for="emailInput">Email address : </label>
+                  <input type="email" class="form-control" id="emailInput" placeholder="Enter email : ">
+                </div>
+                <div class="form-group">
+                  <label for="passwordInput">Password : </label>
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Password : ">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+              </form>
+            </div>
+            <div *ngIf="activeCard === 'register'">
+              <h5 class="card-title">Register Form</h5>
+              <form>
+                <div class="form-group">
+                  <label for="nameInput">Full Name : </label>
+                  <input type="text" class="form-control" id="nameInput" placeholder="Enter your name : ">
+                </div>
+                <div class="form-group">
+                  <label for="emailInput">Email address : </label>
+                  <input type="email" class="form-control" id="emailInput" placeholder="Enter email : ">
+                </div>
+                <div class="form-group">
+                  <label for="passwordInput">Password : </label>
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Password : ">
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+              </form>
+            </div>
+          </div>
+          
+          <div class="card-footer">
+            <button class="btn btn-primary btn-block" (click)="toggleCard()">
+              {{ activeCard === 'login' ? 'Need to register?' : 'Already have an account?' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
