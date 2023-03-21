@@ -7,8 +7,8 @@ nav {
 }
 
 .logo img {
-  height: 50px;
-  width: auto;
+  height: 100px;
+  width: 100px;
 }
 
 .search-bar {
@@ -17,18 +17,6 @@ nav {
   margin: 0 auto;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #333;
-  padding: 10px;
-}
-
-.logo img {
-  height: 50px;
-  width: auto;
-}
 
 .search-bar {
   display: flex;
@@ -41,7 +29,7 @@ nav {
   margin-right: 10px;
   border: none;
   border-radius: 3px;
-  width: 300px;
+  width: 400px;
 }
 
 .search-bar button {
@@ -67,7 +55,7 @@ li {
 a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
 }
 

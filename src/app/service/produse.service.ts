@@ -12,12 +12,16 @@ export class ProduseService {
   findAll() {
     return fetch('http://localhost:9060/rest/product/all')
   }
+  
   save(product: Product) {
+    let myToken =  localStorage.getItem('TOKEN') || '';
+
     return fetch('http://localhost:9060/rest/product/save', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'myToken': myToken
       },
       body: JSON.stringify(product)
     })
@@ -33,8 +37,8 @@ export class ProduseService {
     });
   }
 
-  findById(id: number){
-    return fetch('http://localhost:9060/rest/product/by-id/'+id)
+  findById(id: number) {
+    return fetch('http://localhost:9060/rest/product/by-id/' + id)
 
   }
 }

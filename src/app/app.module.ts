@@ -12,7 +12,8 @@ import { AdminProduseComponent } from './admin-produse/admin-produse.component';
 import { FormsModule } from '@angular/forms';
 import { AdminProdusViewComponent } from './admin-produs-view/admin-produs-view.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContComponent } from './cont/cont.component';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 
 @NgModule({
@@ -25,7 +26,6 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
     ProduseComponent,
     AdminProduseComponent,
     AdminProdusViewComponent,
-    ContComponent,
     LoginRegisterComponent
     
   ],
