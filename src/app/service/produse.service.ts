@@ -10,13 +10,22 @@ export class ProduseService {
 
   //   findAll() :Product[] {
   findAll() {
-    return fetch('http://localhost:9060/rest/product/all')
+
+    let token = '';
+    let localToken = localStorage.getItem('TOKEN');
+    token = localToken ? localToken : '';
+
+    return fetch('http://localhost:9060/rest-secured/product/all', {
+      headers: {
+        'myToken' : token
+      }
+    })
   }
   
   save(product: Product) {
     let myToken =  localStorage.getItem('TOKEN') || '';
 
-    return fetch('http://localhost:9060/rest/product/save', {
+    return fetch('http://localhost:9060/rest-secured/product/save', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -28,7 +37,7 @@ export class ProduseService {
   }
 
   remove(productId: number) {
-    return fetch('http://localhost:9060/rest/product/delete/' + productId, {
+    return fetch('http://localhost:9060/rest-secured/product/delete/' + productId, {
       method: 'delete',
       headers: {
         'Accept': 'application/json',
@@ -38,7 +47,7 @@ export class ProduseService {
   }
 
   findById(id: number) {
-    return fetch('http://localhost:9060/rest/product/by-id/' + id)
+    return fetch('http://localhost:9060/rest-secured/product/by-id/' + id)
 
   }
 }

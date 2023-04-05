@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { AuthService } from '../service/auth.service';
+import { HeaderComponent } from '../header/header.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-register',
@@ -27,32 +29,69 @@ export class LoginRegisterComponent implements OnInit {
   username: string = '';
   password: string = '';
 
-  constructor(private authService: AuthService) { }
+  usernameRegister: string = '';
+  passwordRegister: string = '';
+  emailRegister: string = '';
+  nameRegister: string = '';
+
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent | undefined;
+
+  isLoggedIn = false;
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  ngAfterViewInit() {
+    this.headerComponent?.updateToken();
+  }
+  
 
   toggleCard(): void {
     this.activeCard = this.activeCard === 'login' ? 'register' : 'login';
     console.log('Active Card:', this.activeCard);
   }
 
-  login() {
-    
-    
-   this.authService.login(this.username, this.password).then(raspuns => {
-      if (raspuns.ok) {
-        return raspuns.text();
-      }
-      throw new Error('Something went wrong');
-    }).then(raspuns => {
-      // numai daca nu Error thrown de mai sus
-      console.log('raspuns server: ', raspuns);
-      localStorage.setItem('TOKEN', raspuns);
-    }).catch(eroare => {
-      console.log('eroare: ', eroare);
-    });
+  register() {
+
+    if(this.passwordRegister.length < 3){
+      alert('invalid password, min 3');
+      return;
+    }
+    this.authService.registerUser(this.nameRegister, this.usernameRegister, this.emailRegister, this.passwordRegister)
+      .subscribe(datele => {
+        console.log('datele sunt: ', datele);
+        this.router.navigate(['/about'])
+      },
+        eroare => {
+          console.log('eroare: ', eroare);
+        }
+      )
+    // .then(datele => {if(!datele.ok){throw new Error('naspa')} return datele.json()})
+    // .then(datele => {
+
+    // console.log('raspunsul de la server: ', datele)
+    //  }).catch(eroarea){ console.log('register failed')}
+    //
+
   }
 
+  login() {
+
+    console.log('Loging in with : ', this.username + ' ' + this.password);
+
+    this.authService.login(this.username, this.password)
+      .subscribe((response: string) => {
+        console.log('response from server: ', response);
+        localStorage.setItem('TOKEN', response);
+        this.router.navigate(['/produse'])
+      }, (error: any) => {
+        console.log('error component:', error);
+      });
+  
+     
+    }
+  
 
 }

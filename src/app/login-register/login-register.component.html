@@ -16,8 +16,8 @@
             <div *ngIf="activeCard === 'login'">
               <h5 class="card-title">Login </h5>
                 <div class="form-group">
-                  <label for="emailInput">Email address : </label>
-                  <input type="email" [(ngModel)]="username" class="form-control" id="emailInput" placeholder="Enter email : ">
+                  <label for="username">Username : </label>
+                  <input type="text" [(ngModel)]="username" class="form-control" id="username" placeholder="Enter username : ">
                 </div>
                 <div class="form-group">
                   <label for="passwordInput">Password : </label>
@@ -27,21 +27,23 @@
             </div>
             <div *ngIf="activeCard === 'register'">
               <h5 class="card-title">Register </h5>
-              <form>
                 <div class="form-group">
                   <label for="nameInput">Full Name : </label>
-                  <input type="text" class="form-control" id="nameInput" placeholder="Enter your name : ">
+                  <input type="text" class="form-control" id="nameInput" [(ngModel)]="nameRegister" placeholder="Enter your name : ">
+                </div>
+                <div class="form-group">
+                  <label for="usernameInput">Username : </label>
+                  <input type="text" class="form-control" id="usernameInput" [(ngModel)]="usernameRegister" placeholder="Enter your username : ">
                 </div>
                 <div class="form-group">
                   <label for="emailInput">Email address : </label>
-                  <input type="email" class="form-control" id="emailInput" placeholder="Enter email : ">
+                  <input type="email" class="form-control" id="emailInput" placeholder="Enter email : " [(ngModel)]="emailRegister">
                 </div>
                 <div class="form-group">
                   <label for="passwordInput">Password : </label>
-                  <input type="password" class="form-control" id="passwordInput" placeholder="Password : ">
+                  <input type="password" class="form-control" id="passwordInput" placeholder="Password : " [(ngModel)]="passwordRegister">
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-              </form>
+                <button (click)="register()" class="btn btn-primary">Register</button>
             </div>
           </div>
           

@@ -16,18 +16,19 @@
       <li>
         <a routerLink="/about">About us</a>
       </li>
-      <li>
+      <li *ngIf="myToken">
         <a routerLink="/contact">Contact</a>
       </li>
-      <li>
-        <a href="">Cosul meu</a>
+      <li *ngIf="myToken">
+        <a routerLink="/cos">Cosul meu</a>
       </li>
       <li>
         <a routerLink="/produse">Produse</a>
       </li>
       <li>
-        <a routerLink="/admin-produse">Produse A</a>
+        <a routerLink="/admin-produse" style="display: none;">Produse A</a>
       </li>
+      
     </ul>
   </nav>
   

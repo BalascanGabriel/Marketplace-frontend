@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { LoginRegisterComponent } from './login-register/login-register.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CosComponent } from './cos/cos.component';
+import { TokenGuard } from './service/TokenGuard';
 
 @NgModule({
   declarations: [
@@ -26,16 +29,18 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
     ProduseComponent,
     AdminProduseComponent,
     AdminProdusViewComponent,
-    LoginRegisterComponent
+    LoginRegisterComponent,
+    CosComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TokenGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

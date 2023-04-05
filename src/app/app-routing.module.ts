@@ -5,8 +5,10 @@ import { AdminProdusViewComponent } from './admin-produs-view/admin-produs-view.
 import { AdminProduseComponent } from './admin-produse/admin-produse.component';
 import { ContComponent } from './cont/cont.component';
 import { ContactComponent } from './contact/contact.component';
+import { CosComponent } from './cos/cos.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ProduseComponent } from './produse/produse.component';
+import { TokenGuard } from './service/TokenGuard';
 
 const routes: Routes = [
   {
@@ -33,6 +35,10 @@ const routes: Routes = [
   ,{
     path: 'login-register',
     component: LoginRegisterComponent
+  },{
+    path: 'cos',
+    component: CosComponent,
+    canActivate: [TokenGuard]
   }
 ];
 
