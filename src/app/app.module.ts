@@ -18,6 +18,7 @@ import { LoginRegisterComponent } from './login-register/login-register.componen
 import { HttpClientModule } from '@angular/common/http';
 import { CosComponent } from './cos/cos.component';
 import { TokenGuard } from './service/TokenGuard';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { TokenGuard } from './service/TokenGuard';
     AdminProduseComponent,
     AdminProdusViewComponent,
     LoginRegisterComponent,
-    CosComponent
+    CosComponent,
+    HomeComponent
     
   ],
   imports: [

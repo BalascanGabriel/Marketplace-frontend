@@ -28,7 +28,16 @@
       <li>
         <a routerLink="/admin-produse" style="display: none;">Produse A</a>
       </li>
+
+      <li *ngIf="myToken">
+        <a (click)="logout()" routerLink="/logout">Logout</a>
+      </li>
       
     </ul>
   </nav>
+  
+  <!-- #region 
+  
+  -->
+  
   

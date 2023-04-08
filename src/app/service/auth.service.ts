@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   registerUser(name: string, username: string, email: string, password: string) {
     let obiectRegister = {
@@ -30,8 +31,8 @@ export class AuthService {
       username: username,
       password: password
     };
+
     const url = 'http://localhost:9060/rest/users/login';
-    
     return this.http.post(url, objUser, { responseType: 'text' });
     
   }
@@ -48,6 +49,9 @@ export class AuthService {
     // });
    
   logout(){
-
+    // localStorage.removeItem('TOKEN');
+    // this.router.navigate(['/']);
+    // console.log('Disconected');
+    // alert('You have been loged out');
   }
 }
