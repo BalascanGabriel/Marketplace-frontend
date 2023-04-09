@@ -4,6 +4,7 @@ import { AuthService } from '../service/auth.service';
 import { HeaderComponent } from '../header/header.component';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '../service/local-storage.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-login-register',
@@ -39,7 +40,8 @@ export class LoginRegisterComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private authService: AuthService, private router: Router, private localStorageService: LocalStorageService) { }
+  constructor(private authService: AuthService, private router: Router, private localStorageService: LocalStorageService,
+     private userService: UserService) { }
 
   ngOnInit(): void {
     console.log('NG ON INIT LOGIN/REGISTER');
@@ -89,6 +91,7 @@ export class LoginRegisterComponent implements OnInit {
         // localStorage.setItem('TOKEN', response);
         this.localStorageService.setItem('TOKEN', response);
         this.router.navigate(['/produse'])
+        this.userService.setCurrentUser(this.username);
       }, (error: any) => {
         console.log('error component:', error);
       });
