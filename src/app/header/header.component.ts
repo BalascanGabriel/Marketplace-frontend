@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { LocalStorageService } from '../service/local-storage.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,19 @@ import { LocalStorageService } from '../service/local-storage.service';
 export class HeaderComponent implements OnInit {
 
   myToken: string | null = null;
+  public currentUser: string = '';
 
   constructor(private cdr: ChangeDetectorRef, private router: Router, private auth: AuthService
-    , private localStorageService: LocalStorageService) { }
+    , private localStorageService: LocalStorageService, private userService: UserService) {
+
+    const user = this.userService.getCurrentUser();
+    console.log('From header component constructor');
+    if (user !== null) {
+      console.log('From header component constructor -> user != null');
+      this.currentUser = user;
+    }
+
+  }
 
 
   ngOnInit(): void {
@@ -33,14 +44,14 @@ export class HeaderComponent implements OnInit {
       operation: 'REMOVE'
     }
       */
-      if(rez.key == 'TOKEN'){
-        if(rez.operation == 'SET'){
+      if (rez.key == 'TOKEN') {
+        if (rez.operation == 'SET') {
           this.myToken = localStorage.getItem('TOKEN');
-        }else if(rez.operation == 'REMOVE'){
+        } else if (rez.operation == 'REMOVE') {
           this.myToken = null;
         }
         console.log('SCHIMBARE DE TOKEN!!!!!');
-        
+
       }
     });
   }
@@ -60,6 +71,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
     console.log('Disconected');
     alert('You have been loged out');
+    this.currentUser='';
+    console.log(`Now current user is ${this.currentUser}`)
   }
 
 }

@@ -9,6 +9,9 @@ import { CosComponent } from './cos/cos.component';
 import { LoginRegisterComponent } from './login-register/login-register.component';
 import { ProduseComponent } from './produse/produse.component';
 import { TokenGuard } from './service/TokenGuard';
+import { HomeComponent } from './home/home.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { UserInformationComponent } from './user-information/user-information.component';
 
 const routes: Routes = [
   {
@@ -39,6 +42,16 @@ const routes: Routes = [
     path: 'cos',
     component: CosComponent,
     canActivate: [TokenGuard]
+  },{
+    path : '',
+    component: HomeComponent
+  },{
+    path: 'wishlist',
+    component : WishlistComponent
+  }
+  ,{
+    path:'user-information',
+    component: UserInformationComponent
   }
 ];
 

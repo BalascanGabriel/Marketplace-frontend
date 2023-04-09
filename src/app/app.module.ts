@@ -19,6 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { CosComponent } from './cos/cos.component';
 import { TokenGuard } from './service/TokenGuard';
 import { HomeComponent } from './home/home.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NavbarComponent } from './navbar/navbar.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { UserInformationComponent } from './user-information/user-information.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,10 @@ import { HomeComponent } from './home/home.component';
     AdminProdusViewComponent,
     LoginRegisterComponent,
     CosComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    WishlistComponent,
+    UserInformationComponent
     
   ],
   imports: [
@@ -40,7 +48,10 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule,
   ],
   providers: [TokenGuard],
   bootstrap: [AppComponent]

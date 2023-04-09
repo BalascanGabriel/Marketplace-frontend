@@ -1,43 +1,48 @@
 <nav>
-    <div class="logo">
-        <img src="../../assets/logo.png" alt="Logo">
-    </div>
-    <div class="search-bar">
-      <input type="text" placeholder="Search">
-      <button type="button">Search</button>
-    </div>
-    <ul>
-      <li>
+  <div class="logo">
+    <img src="../../assets/logo.png" alt="Logo">
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="Search">
+    <button type="button">Search</button>
+  </div>
+  <ul>
+    <!-- <li>
         <a href="">Home</a>
-      </li>
-      <li>
-        <a routerLink="/login-register">Contul meu</a>
-      </li>
-      <li>
-        <a routerLink="/about">About us</a>
-      </li>
-      <li *ngIf="myToken">
-        <a routerLink="/contact">Contact</a>
-      </li>
-      <li *ngIf="myToken">
-        <a routerLink="/cos">Cosul meu</a>
-      </li>
-      <li>
-        <a routerLink="/produse">Produse</a>
-      </li>
-      <li>
-        <a routerLink="/admin-produse" style="display: none;">Produse A</a>
-      </li>
+      </li> -->
+    <li *ngIf="myToken">
+      <a>Welcome, {{currentUser}}</a>
+    </li>
 
-      <li *ngIf="myToken">
-        <a (click)="logout()" routerLink="/logout">Logout</a>
+    <li *ngIf="myToken; else userMenu">
+      <a routerLink="/user-information">My Account</a>
+    </li>
+    <ng-template #userMenu>
+      <li>
+        <a routerLink="/login-register">Login/Register</a>
       </li>
-      
-    </ul>
-  </nav>
-  
-  <!-- #region 
+    </ng-template>
+
+
+    <li *ngIf="myToken">
+      <a routerLink="/cos">Cosul meu</a>
+    </li>
+    <li *ngIf="myToken">
+      <a routerLink="/wishlist">Wishlist</a>
+    </li>
+    <li>
+      <a routerLink="/produse">Toate Produsele</a>
+    </li>
+    <li>
+      <a routerLink="/admin-produse" style="display: none;">Produse A</a>
+    </li>
+    <li *ngIf="myToken">
+      <a (click)="logout()" routerLink="/logout">Logout</a>
+    </li>
+
+  </ul>
+</nav>
+
+<!-- #region 
   
   -->
-  
-  

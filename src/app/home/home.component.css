@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .hero {
+    flex: 1;
+    max-width: 50%;
+    height: 100%;
+    animation: slide-in-left 1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero img {
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+  }
+  
+  .welcome {
+    flex: 1;
+    max-width: 50%;
+    animation: slide-in-right 1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .welcome p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+  }
+  
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    width: 300px;
+  }
+  
+  .card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .card button {
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .card button:hover {
+    background-color: #0062cc;
+  }
+  
