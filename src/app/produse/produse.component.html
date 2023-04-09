@@ -1,21 +1,91 @@
 <div class="container">
-    <h2>Produse</h2>
-    <div class="row">
 
-      <div class="col-12 col-md-4 mb-4" *ngFor="let p of produse">
+  <!-- TODO: dropdown cu cate sa fie pe pagina: 3 5 10 50 -->
+  <!-- TODO: Ordonare dupa headere-->
+  <!-- TODO: SORTARE-->
+  <!-- <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of produsePaginare">
+        <td>
+          {{p.id}}
+        </td>
+        <td>
+          {{p.name}}
+        </td>
+        <td>
+          {{p.price}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button *ngIf="!primaPagina" (click)="navigarePrev()">Prev</button>
+  <button *ngIf="!ultimaPagina" (click)="navigareNext()">Next</button> -->
 
-        <div class="card h-100">
-          <img src="" class="card-img-top" alt="{{ p.name }}">
-          
-          <div class="card-body">
-            <h5 class="card-title">{{ p.name }}</h5>
-            <p class="card-text">Description</p>
-            <p class="card-text">{{ p.price }}</p>
-            <button>Add to cart</button>
-          </div>
+  Total pages: {{totalPages}}
+  <button (click)="navigare(nrPagina-1)">{{nrPagina-1}}</button>
+  Current page: {{nrPagina}}
+  <button (click)="navigare(nrPagina+1)">{{nrPagina+1}}</button>
 
+
+
+  <h2>Produse</h2>
+
+  <form>
+    <mat-form-field>
+      <mat-label>Order By</mat-label>
+      <mat-select [(ngModel)]="orderBy">
+        <mat-option *ngFor="let option of orderByOptions" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Sort By</mat-label>
+      <mat-select [(ngModel)]="sortBy">
+        <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Products</mat-label>
+      <mat-select [(ngModel)]="productsDisp">
+        <mat-option *ngFor="let option of prodToDisplay" [value]="option.value">
+          {{ option.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  
+
+  <div class="row">
+
+    <div class="col-12 col-md-4 mb-4" *ngFor="let p of produsePaginare">
+
+      <div class="card h-100">
+        <img src="" class="card-img-top" alt="{{ p.name }}">
+
+        <div class="card-body">
+          <h5 class="card-title">{{ p.name }}</h5>
+          <p class="card-text">Description</p>
+          <p class="card-text">{{ p.price }}</p>
+          <button>Add to cart</button>
         </div>
+
       </div>
     </div>
   </div>
-  
+  <div class="d-flex justify-content-center">
+    <button *ngIf="!primaPagina" (click)="navigarePrev()">Prev</button>
+    <button *ngIf="!ultimaPagina" (click)="navigareNext()">Next</button>
+  </div>
+</div>

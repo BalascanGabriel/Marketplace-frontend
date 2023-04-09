@@ -21,6 +21,19 @@ export class ProduseService {
       }
     })
   }
+
+  findAllPaginare(nrPagina: number, elementePagina: number) {
+
+    let token = '';
+    let localToken = localStorage.getItem('TOKEN');
+    token = localToken ? localToken : '';
+
+    return fetch('http://localhost:9060/rest-secured/product/all-paginare/'+nrPagina+'/'+elementePagina, {
+      headers: {
+        'myToken' : token
+      }
+    })
+  }
   
   save(product: Product) {
     let myToken =  localStorage.getItem('TOKEN') || '';
