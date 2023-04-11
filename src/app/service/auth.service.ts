@@ -33,7 +33,7 @@ export class AuthService {
     };
 
     const url = 'http://localhost:9060/rest/users/login';
-    return this.http.post(url, objUser, { responseType: 'text' });
+    return this.http.post(url, objUser);
     
   }
   

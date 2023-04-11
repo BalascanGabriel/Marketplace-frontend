@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { UserInformationComponent } from './user-information/user-information.component';
+import { UserService } from './service/user.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { UserInformationComponent } from './user-information/user-information.co
     MatSelectModule,
     MatFormFieldModule,
   ],
-  providers: [TokenGuard],
+  providers: [TokenGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

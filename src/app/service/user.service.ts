@@ -7,7 +7,9 @@ export class UserService {
 
   private currentUser: string | null = null;
 
-  constructor() { }
+  constructor() { 
+    console.log('Creating user service');
+  }
 
   public setCurrentUser(name: string): void {
     console.log(`Setting currentUser to ${name}`);

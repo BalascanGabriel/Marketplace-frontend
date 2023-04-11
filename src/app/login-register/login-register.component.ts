@@ -86,10 +86,12 @@ export class LoginRegisterComponent implements OnInit {
     console.log('Loging in with : ', this.username + ' ' + this.password);
 
     this.authService.login(this.username, this.password)
-      .subscribe((response: string) => {
+      .subscribe((response: any) => {
         console.log('response from server: ', response);
         // localStorage.setItem('TOKEN', response);
-        this.localStorageService.setItem('TOKEN', response);
+        this.localStorageService.setItem('TOKEN', response.token);
+        this.localStorageService.setItem('USERNAME', response.username);
+
         this.router.navigate(['/produse'])
         this.userService.setCurrentUser(this.username);
       }, (error: any) => {

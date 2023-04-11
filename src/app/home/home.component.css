@@ -7,7 +7,7 @@
   
   .hero {
     flex: 1;
-    max-width: 50%;
+    max-width: 40%; /* Adjust this value */
     height: 100%;
     animation: slide-in-left 1s ease-out;
     display: flex;
@@ -23,7 +23,7 @@
   
   .welcome {
     flex: 1;
-    max-width: 50%;
+    max-width: 40%; 
     animation: slide-in-right 1s ease-out;
     display: flex;
     align-items: center;
@@ -42,6 +42,7 @@
     line-height: 1.5;
     margin-bottom: 3rem;
   }
+  
   
   @keyframes slide-in-left {
     from {
