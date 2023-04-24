@@ -24,13 +24,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('NG ON INIT HEADER');
-    const user = this.userService.getCurrentUser();
-    console.log('Current user:', user);
-
-    if (user !== null) {
-      console.log('user is not null');
-      this.currentUser = user;
-    }
+    
 
     this.updateToken();
 
