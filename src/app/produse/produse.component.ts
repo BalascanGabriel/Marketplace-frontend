@@ -57,6 +57,15 @@ export class ProduseComponent implements OnInit {
 
   }
 
+  addToCart(p : Product){
+    console.log('adding to cart: ', p);
+    this.produseService.addProductToCart(p)
+      .then(ras => ras.json())
+      .then(ras => {
+        console.log('added product to cart: ', ras);
+      })
+  }
+
   incarcaPagina(nrPagina: number, elemente: number) {
     this.produseService.findAllPaginare(nrPagina, elemente)
       .then(datele => datele.json())

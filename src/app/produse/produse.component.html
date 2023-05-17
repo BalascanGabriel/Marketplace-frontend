@@ -37,35 +37,33 @@
 
   <h2>Produse</h2>
 
-  <form>
-    <mat-form-field>
-      <mat-label>Order By</mat-label>
-      <mat-select [(ngModel)]="orderBy">
-        <mat-option *ngFor="let option of orderByOptions" [value]="option.value">
-          {{ option.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  
-    <mat-form-field>
-      <mat-label>Sort By</mat-label>
-      <mat-select [(ngModel)]="sortBy">
-        <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
-          {{ option.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <mat-label>Order By</mat-label>
+    <mat-select [(ngModel)]="orderBy">
+      <mat-option *ngFor="let option of orderByOptions" [value]="option.value">
+        {{ option.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Products</mat-label>
-      <mat-select [(ngModel)]="productsDisp">
-        <mat-option *ngFor="let option of prodToDisplay" [value]="option.value">
-          {{ option.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </form>
-  
+  <mat-form-field>
+    <mat-label>Sort By</mat-label>
+    <mat-select [(ngModel)]="sortBy">
+      <mat-option *ngFor="let option of sortByOptions" [value]="option.value">
+        {{ option.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Products</mat-label>
+    <mat-select [(ngModel)]="productsDisp">
+      <mat-option *ngFor="let option of prodToDisplay" [value]="option.value">
+        {{ option.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
 
   <div class="row">
 
@@ -78,7 +76,7 @@
           <h5 class="card-title">{{ p.name }}</h5>
           <p class="card-text">Description</p>
           <p class="card-text">{{ p.price }}</p>
-          <button>Add to cart</button>
+          <button (click)="addToCart(p)">Add to cart</button>
           <button>&#9825;</button>
         </div>
 
